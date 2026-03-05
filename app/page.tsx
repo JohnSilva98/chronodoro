@@ -73,9 +73,9 @@ export default function Home() {
        {/* contador */}
        <div className="flex flex-col items-center justify-center mt-7">
        <h1 className='text-white text-8xl font-bold'>00:00</h1>
-       <form className="flex flex-col items-center justify-center mt-10">
-        <label className='text-white mb-1'>Task:</label>
-        <input onChange={(e)=> setTask(e.target.value)} className='text-white bg-[#1f2937] border border-[#1f2937] p-2 rounded-lg' type="text" id="task" name="task" value={task} />
+       <form className="flex flex-col items-center justify-center mt-2">
+        <label className='text-white mb-4'>Task:</label>
+        <input onChange={(e)=> setTask(e.target.value)} className='text-white border-b-2 border[#1a7a20] p-2 rounded-sm' type="text" id="task" name="task" value={task} />
         <button onClick={handleStart} className='text-white bg-[#1a7a20] hover:bg-[#22c55e] duration-300 border border-[#1f2937] p-2 rounded-lg mt-2 cursor-pointer px-8'>{started ? <CircleStop size={24} color="white" /> : <CirclePlay size={24} color="white" />}</button>
        </form>
        </div>
