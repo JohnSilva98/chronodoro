@@ -12,7 +12,7 @@ export default function Home() {
   const [count, setCount] = useState(0)
   const [started, setStarted] = useState(false)
   const [time, setTime] = useState(0)
-  const [cicle, setCicle] = useState('focus')
+  const [cicle, setCicle] = useState('descanse')
   const [focusTime, setFocusTime] = useState(25)
   const [breakTime, setBreakTime] = useState(5)
 
@@ -76,6 +76,12 @@ export default function Home() {
        <form className="flex flex-col items-center justify-center mt-2">
         <label className='text-white mb-4'>Task:</label>
         <input onChange={(e)=> setTask(e.target.value)} className='text-white border-b-2 border[#1a7a20] p-2 rounded-sm' type="text" id="task" name="task" value={task} />
+        <div className="flex items-center gap-2 mt-3">
+          <p className='text-white'>Nesse ciclo</p>
+          <p className='text-white'> <span className='text-[#22c55e] font-semibold'>{cicle}</span></p>
+          <p className='text-white'> <span className='text-white'>por</span></p>
+          <p className='text-white'> <span className='text-[#22c55e] font-semibold'>{breakTime} minutos</span></p>
+        </div>
         <button onClick={handleStart} className='text-white bg-[#1a7a20] hover:bg-[#22c55e] duration-300 border border-[#1f2937] p-2 rounded-lg mt-2 cursor-pointer px-8'>{started ? <CircleStop size={24} color="white" /> : <CirclePlay size={24} color="white" />}</button>
        </form>
        </div>
