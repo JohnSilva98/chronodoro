@@ -1,22 +1,84 @@
-import {Timer, History, Lightbulb, Settings} from 'lucide-react'
+'use client'
+
+import {Timer, History, Lightbulb, Settings, House, CirclePlay, CircleStop} from 'lucide-react'
+import { useState } from 'react'
+import Toastify from 'toastify-js'
+
+
+
 
 export default function Home() {
+  const [task, setTask] = useState('')
+  const [count, setCount] = useState(0)
+  const [started, setStarted] = useState(false)
+  const [time, setTime] = useState(0)
+  const [cicle, setCicle] = useState('focus')
+  const [focusTime, setFocusTime] = useState(25)
+  const [breakTime, setBreakTime] = useState(5)
+
+
+  const handleStart = (e) => {
+     e.preventDefault()
+      if(task === '') {
+      Toastify({text: 'Por favor, insira uma tarefa', duration: 3000,
+        close: true,
+        gravity: "top", // `top` or `bottom`
+        position: "right", // `left`, `center` or `right`
+        stopOnFocus: true, // Prevents dismissing of toast on hover
+      
+        style: {
+          background: "linear-gradient(to right, #1a7a20, #22c55e)",
+        }
+      }).showToast();
+      return;
+    }
+    if(started === true) {
+      setStarted(false)
+      setTask('')
+    } else {
+      setStarted(true)
+    }
+    
+    
+    return
+    setStarted(false)
+  }
+
+
   return (
     <div className=" flex justify-center ">
       {/* cabeçalho da pagina */}
       <main className="bg-gradient-to-br from-[#0f172a] via-[#111827] to-[#052e16] w-full h-screen">
-        <div className="mt-10 p1 flex flex-col items-center justify-center">
-        <Timer color="#1a7a20e6" size={58} className='mb-5' />
-         <h1 className="text-[#e5e7eb] text-4xl font-bold mb-3">Chronodoro</h1>
+        <div className="mt-5 p1 flex flex-col items-center justify-center">
+        <Timer color="#1a7a20e6" size={48} className='mb-5' />
+         <h1 className="text-[#e5e7eb] text-3xl font-bold mb-1">Chronodoro</h1>
         <p className="text-[#9ca3af] text-2xl">Pomodoro tracker</p>
         </div>
        {/* menu de botões */}
-       <div className="flex justify-center gap-4 mt-10">
-        <History color="white" size={48} className='cursor-pointer hover:bg-[#22c55e] duration-300 transition-colors border border-[#1f2937] p-[10px] rounded-lg bg-[#1a7a20]' />
-        <Settings color="white" size={48} className='cursor-pointer hover:bg-[#22c55e] duration-300 transition-colors border border-[#1f2937] p-[10px] rounded-lg bg-[#1a7a20]' />
-        <Lightbulb color="white" size={48} className='cursor-pointer hover:bg-[#22c55e] duration-300 transition-colors border border-[#1f2937] p-[10px] rounded-lg bg-[#1a7a20]' />
+       <div className="flex justify-center gap-4 mt-6">
+
+       <a href="#">
+         <House color="black" size={48} className='cursor-pointer hover:bg-[#22c55e] duration-300 transition-colors border border-[#1f2937] p-[10px] rounded-lg bg-[#1a7a20]' />
+       </a>
+       <a href="#">
+         <History color="black" size={48} className='cursor-pointer hover:bg-[#22c55e] duration-300 transition-colors border border-[#1f2937] p-[10px] rounded-lg bg-[#1a7a20]' />
+       </a>
+       <a href="#">
+         <Settings color="black" size={48} className='cursor-pointer hover:bg-[#22c55e] duration-300 transition-colors border border-[#1f2937] p-[10px] rounded-lg bg-[#1a7a20]' />
+       </a>
+       
+       <Lightbulb color="black" size={48} className='cursor-pointer hover:bg-[#22c55e] duration-300 transition-colors border border-[#1f2937] p-[10px] rounded-lg bg-[#1a7a20]' />
+       
        </div>
        {/* contador */}
+       <div className="flex flex-col items-center justify-center mt-7">
+       <h1 className='text-white text-8xl font-bold'>00:00</h1>
+       <form className="flex flex-col items-center justify-center mt-10">
+        <label className='text-white mb-1'>Task:</label>
+        <input onChange={(e)=> setTask(e.target.value)} className='text-white bg-[#1f2937] border border-[#1f2937] p-2 rounded-lg' type="text" id="task" name="task" value={task} />
+        <button onClick={handleStart} className='text-white bg-[#1a7a20] hover:bg-[#22c55e] duration-300 border border-[#1f2937] p-2 rounded-lg mt-2 cursor-pointer px-8'>{started ? <CircleStop size={24} color="white" /> : <CirclePlay size={24} color="white" />}</button>
+       </form>
+       </div>
       </main>
     </div>
   );
