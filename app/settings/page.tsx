@@ -1,13 +1,8 @@
 "use client"
-import { House, History, Settings as SettingsIcon, Lightbulb } from "lucide-react";
 import { useState } from "react";
-
-
- 
-
-
 import Toastify from 'toastify-js'
 import MenuButton from "../components/MenuButton";
+import { Settings2 } from "lucide-react";
 
 export default function Settings() {
 
@@ -32,10 +27,13 @@ export default function Settings() {
     }
 
   return (
-    <div className="flex items-center justify-center h-screen bg-[var(--gradient-bg)]">
+    <div className="flex items-center justify-center h-screen" style={{background: 'var(--gradient-dark)'}}>
   
   <div className="flex flex-col items-center">
-    <h1 className="text-[var(--text-primary)] text-3xl font-bold mb-4">Configurações</h1>
+   <div className="flex items-center gap-2 mb-6 mt-6">
+     <h1 className="text-[var(--text-primary)] text-3xl font-bold">Configurações</h1>
+    <Settings2 size={36}  />
+   </div>
 
       {/* menu de botões */}
       <MenuButton />

@@ -50,7 +50,7 @@ export default function Home() {
   return (
     <div className=" flex justify-center ">
       {/* cabeçalho da pagina */}
-      <main className="bg-gradient-to-br from-[#0f172a] via-[#111827] to-[#052e16] w-full h-screen">
+      <main className=" w-full h-screen" style={{background: 'var(--gradient-dark)'}} >
         <div className="mt-5 p1 flex flex-col items-center justify-center">
         <Timer color="#1a7a20e6" size={48} className='mb-5' />
          <h1 className="text-[var(--text-primary)] text-3xl font-bold mb-1">Chronodoro</h1>
