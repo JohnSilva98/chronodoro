@@ -43,7 +43,7 @@ export default function Settings() {
     <form className="flex flex-col justify-center mb-5">
       <label>Tempo de foco</label>
       <input
-        className="bg-[#0f172a] text-[#e5e7eb] rounded-lg p-2 w-[200px] border-b-2 border-[var(--border-light)] mb-5"
+        className="bg-[var(--bg-dark-1)] text-[var(--text-primary)] rounded-lg p-2 w-[200px] border-b-2 border-[var(--border-light)] mb-5"
         type="number"
         value={focusTime}
         onChange={(e) => setFocusTime(parseInt(e.target.value))}
@@ -51,7 +51,7 @@ export default function Settings() {
 
       <label>Tempo de pausa curta</label>
       <input
-        className="bg-[#0f172a] text-[#e5e7eb] rounded-lg p-2 w-[200px] border-b-2 border-[var(--border-light)] mb-5"
+        className="bg-[var(--bg-dark-1)] text-[var(--text-primary)] rounded-lg p-2 w-[200px] border-b-2 border-[var(--border-light)] mb-5"
         type="number"
         value={shortBreakTime}
         onChange={(e) => setShortBreakTime(parseInt(e.target.value))}
@@ -59,7 +59,7 @@ export default function Settings() {
 
       <label>Tempo de pausa longa</label>
       <input
-        className="bg-[#0f172a] text-[#e5e7eb] rounded-lg p-2 w-[200px] border-b-2 border-[var(--border-light)] mb-5"
+        className="bg-[var(--bg-dark-1)] text-[var(--text-primary)] rounded-lg p-2 w-[200px] border-b-2 border-[var(--border-light)] mb-5"
         type="number"
         value={longBreakTime}
         onChange={(e) => setLongBreakTime(parseInt(e.target.value))}
@@ -67,7 +67,7 @@ export default function Settings() {
 
       <button
         onClick={handleSave}
-        className="bg-[#1a7a20e6] text-white rounded-lg p-2 w-[200px] mt-4 cursor-pointer"
+        className="bg-[var(--primary-green-light)] hover:bg-[var(--primary-green-hover)] duration-300 text-white rounded-lg p-2 w-[200px] mt-4 cursor-pointer"
       >
         Salvar
       </button>
