@@ -3,8 +3,7 @@
 import {Timer, History, Lightbulb, Settings, House, CirclePlay, CircleStop} from 'lucide-react'
 import { useState } from 'react'
 import Toastify from 'toastify-js'
-
-
+import MenuButton from "./components/MenuButton";
 
 
 export default function Home() {
@@ -14,10 +13,13 @@ export default function Home() {
   const [time, setTime] = useState(0)
   const [cicle, setCicle] = useState('descanse')
   const [focusTime, setFocusTime] = useState(25)
-  const [breakTime, setBreakTime] = useState(5)
+  const [shortBreakTime, setShortBreakTime] = useState(5)
+  const [longBreakTime, setLongBreakTime] = useState(15)
 
 
-  const handleStart = (e) => {
+
+
+  const handleStart = (e: { preventDefault: () => void }) => {
      e.preventDefault()
       if(task === '') {
       Toastify({text: 'Por favor, insira uma tarefa', duration: 3000,
@@ -55,21 +57,7 @@ export default function Home() {
         <p className="text-[#9ca3af] text-2xl">Pomodoro tracker</p>
         </div>
        {/* menu de botões */}
-       <div className="flex justify-center gap-4 mt-6">
-
-       <a href="#">
-         <House color="black" size={48} className='cursor-pointer hover:bg-[#22c55e] duration-300 transition-colors border border-[#1f2937] p-[10px] rounded-lg bg-[#1a7a20]' />
-       </a>
-       <a href="#">
-         <History color="black" size={48} className='cursor-pointer hover:bg-[#22c55e] duration-300 transition-colors border border-[#1f2937] p-[10px] rounded-lg bg-[#1a7a20]' />
-       </a>
-       <a href="#">
-         <Settings color="black" size={48} className='cursor-pointer hover:bg-[#22c55e] duration-300 transition-colors border border-[#1f2937] p-[10px] rounded-lg bg-[#1a7a20]' />
-       </a>
-       
-       <Lightbulb color="black" size={48} className='cursor-pointer hover:bg-[#22c55e] duration-300 transition-colors border border-[#1f2937] p-[10px] rounded-lg bg-[#1a7a20]' />
-       
-       </div>
+       <MenuButton />
        {/* contador */}
        <div className="flex flex-col items-center justify-center mt-7">
        <h1 className='text-white text-8xl font-bold'>00:00</h1>
@@ -80,9 +68,9 @@ export default function Home() {
           <p className='text-white'>Nesse ciclo</p>
           <p className='text-white'> <span className='text-[#22c55e] font-semibold'>{cicle}</span></p>
           <p className='text-white'> <span className='text-white'>por</span></p>
-          <p className='text-white'> <span className='text-[#22c55e] font-semibold'>{breakTime} minutos</span></p>
+          <p className='text-white'> <span className='text-[#22c55e] font-semibold'>{shortBreakTime} minutos</span></p>
         </div>
-        <button onClick={handleStart} className='text-white bg-[#1a7a20] hover:bg-[#22c55e] duration-300 border border-[#1f2937] p-2 rounded-lg mt-2 cursor-pointer px-8'>{started ? <CircleStop size={24} color="white" /> : <CirclePlay size={24} color="white" />}</button>
+        <button onClick={handleStart} className={`text-white hover:bg-[#22c55e] duration-300 border border-[#1f2937] p-2 rounded-lg mt-2 cursor-pointer px-8 ${started ? 'bg-[#dc2626] hover:bg-[#dc2626]/80' : 'bg-[#1a7a20] hover:bg-[#1a7a20]/80'}`}>{started ? <CircleStop size={24} color="white" /> : <CirclePlay size={24} color="white" />}</button>
        </form>
        </div>
       </main>
