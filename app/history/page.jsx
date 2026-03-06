@@ -1,8 +1,14 @@
+"use client"
 import MenuButton from '../components/MenuButton'
 import { ClipboardClock, Trash } from 'lucide-react'
+import { useState } from 'react'
 
 
 const History = () => {
+
+const [hasHistory, setHasHistory] = useState(false)
+
+  
   return (
     <div className="flex justify-center h-screen " style={{background: 'var(--gradient-dark)'}}>
      
@@ -14,6 +20,11 @@ const History = () => {
    
          {/* menu de botões */}
          <MenuButton />
+
+         <div className='flex items-center gap-2 mb-4'>
+          <h1 className="text-[var(--text-primary)] text-xl font-semibold">Apagar histórico</h1>
+          <Trash size={42} className='text-[var(--text-primary)] cursor-pointer hover:bg-[var(--error)]/80 duration-300 transition-colors border border-[var(--border-dark)] p-[10px] rounded-lg bg-[var(--error)]' />
+         </div>
 
          {/* tabela de histórico */}
          <div className="bg-gray-600 rounded-lg p-4 w-[80vw] rounded-lg">
