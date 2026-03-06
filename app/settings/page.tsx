@@ -32,10 +32,10 @@ export default function Settings() {
     }
 
   return (
-    <div className="flex items-center justify-center h-screen bg-gradient-to-br from-[#0f172a] via-[#111827] to-[#052e16]">
+    <div className="flex items-center justify-center h-screen bg-[var(--gradient-bg)]">
   
   <div className="flex flex-col items-center">
-    <h1 className="text-[#e5e7eb] text-3xl font-bold mb-4">Configurações</h1>
+    <h1 className="text-[var(--text-primary)] text-3xl font-bold mb-4">Configurações</h1>
 
       {/* menu de botões */}
       <MenuButton />
@@ -43,7 +43,7 @@ export default function Settings() {
     <form className="flex flex-col justify-center mb-5">
       <label>Tempo de foco</label>
       <input
-        className="bg-[#0f172a] text-[#e5e7eb] rounded-lg p-2 w-[200px] border-b-2 border-[#1a7a20e6] mb-5"
+        className="bg-[#0f172a] text-[#e5e7eb] rounded-lg p-2 w-[200px] border-b-2 border-[var(--border-light)] mb-5"
         type="number"
         value={focusTime}
         onChange={(e) => setFocusTime(parseInt(e.target.value))}
@@ -51,7 +51,7 @@ export default function Settings() {
 
       <label>Tempo de pausa curta</label>
       <input
-        className="bg-[#0f172a] text-[#e5e7eb] rounded-lg p-2 w-[200px] border-b-2 border-[#1a7a20e6] mb-5"
+        className="bg-[#0f172a] text-[#e5e7eb] rounded-lg p-2 w-[200px] border-b-2 border-[var(--border-light)] mb-5"
         type="number"
         value={shortBreakTime}
         onChange={(e) => setShortBreakTime(parseInt(e.target.value))}
@@ -59,7 +59,7 @@ export default function Settings() {
 
       <label>Tempo de pausa longa</label>
       <input
-        className="bg-[#0f172a] text-[#e5e7eb] rounded-lg p-2 w-[200px] border-b-2 border-[#1a7a20e6] mb-5"
+        className="bg-[#0f172a] text-[#e5e7eb] rounded-lg p-2 w-[200px] border-b-2 border-[var(--border-light)] mb-5"
         type="number"
         value={longBreakTime}
         onChange={(e) => setLongBreakTime(parseInt(e.target.value))}

@@ -53,24 +53,24 @@ export default function Home() {
       <main className="bg-gradient-to-br from-[#0f172a] via-[#111827] to-[#052e16] w-full h-screen">
         <div className="mt-5 p1 flex flex-col items-center justify-center">
         <Timer color="#1a7a20e6" size={48} className='mb-5' />
-         <h1 className="text-[#e5e7eb] text-3xl font-bold mb-1">Chronodoro</h1>
-        <p className="text-[#9ca3af] text-2xl">Pomodoro tracker</p>
+         <h1 className="text-[var(--text-primary)] text-3xl font-bold mb-1">Chronodoro</h1>
+        <p className="text-[var(--text-secondary)] text-2xl">Pomodoro tracker</p>
         </div>
        {/* menu de botões */}
        <MenuButton />
        {/* contador */}
        <div className="flex flex-col items-center justify-center mt-7">
-       <h1 className='text-white text-8xl font-bold'>00:00</h1>
+       <h1 className='text-[var(--text-primary)] text-8xl font-bold'>00:00</h1>
        <form className="flex flex-col items-center justify-center mt-2">
-        <label className='text-white mb-4'>Task:</label>
-        <input onChange={(e)=> setTask(e.target.value)} className='text-white border-b-2 border[#1a7a20] p-2 rounded-sm' type="text" id="task" name="task" value={task} />
+        <label className='text-[var(--text-primary)] mb-4'>Task:</label>
+        <input onChange={(e)=> setTask(e.target.value)} className='text-[var(--text-primary)] border-b-2 border[#1a7a20] p-2 rounded-sm' type="text" id="task" name="task" value={task} />
         <div className="flex items-center gap-2 mt-3">
-          <p className='text-white'>Nesse ciclo</p>
-          <p className='text-white'> <span className='text-[#22c55e] font-semibold'>{cicle}</span></p>
-          <p className='text-white'> <span className='text-white'>por</span></p>
-          <p className='text-white'> <span className='text-[#22c55e] font-semibold'>{shortBreakTime} minutos</span></p>
+          <p className='text-[var(--text-primary)]'>Nesse ciclo</p>
+          <p className='text-[var(--text-primary)]'> <span className='text-[var(--primary-green-light)] font-semibold'>{cicle}</span></p>
+          <p className='text-[var(--text-primary)]'> <span className='text-[var(--text-primary)]'>por</span></p>
+          <p className='text-[var(--text-primary)]'> <span className='text-[var(--primary-green-light)] font-semibold'>{shortBreakTime} minutos</span></p>
         </div>
-        <button onClick={handleStart} className={`text-white hover:bg-[#22c55e] duration-300 border border-[#1f2937] p-2 rounded-lg mt-2 cursor-pointer px-8 ${started ? 'bg-[#dc2626] hover:bg-[#dc2626]/80' : 'bg-[#1a7a20] hover:bg-[#1a7a20]/80'}`}>{started ? <CircleStop size={24} color="white" /> : <CirclePlay size={24} color="white" />}</button>
+        <button onClick={handleStart} className={`text-[var(--text-primary)] hover:bg-[#22c55e] duration-300 border border-[#1f2937] p-2 rounded-lg mt-2 cursor-pointer px-8 ${started ? 'bg-[#dc2626] hover:bg-[#dc2626]/80' : 'bg-[#1a7a20] hover:bg-[#1a7a20]/80'}`}>{started ? <CircleStop size={24} color="white" /> : <CirclePlay size={24} color="white" />}</button>
        </form>
        </div>
       </main>

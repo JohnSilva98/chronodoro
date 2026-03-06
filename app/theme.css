@@ -1,0 +1,30 @@
+:root {
+  /* Cores principais */
+  --primary-green: #1a7a20;
+  --primary-green-hover: #22c55e;
+  --primary-green-light: #1a7a20e6;
+  
+  /* Cores de fundo */
+  --bg-dark-1: #0f172a;
+  --bg-dark-2: #111827;
+  --bg-dark-3: #052e16;
+  
+  /* Cores de texto */
+  --text-primary: #e5e7eb;
+  --text-secondary: #9ca3af;
+  --text-white: #ffffff;
+  
+  /* Cores de borda */
+  --border-light: #48ba22;
+  --border-dark: #1f2937;
+  
+  /* Cores de status */
+  --success-green: #22c55e;
+  --danger-red: #dc2626;
+  --warning-yellow: #f59e0b;
+  
+  /* Gradientes */
+  --gradient-bg: linear-gradient(to right, #1a7a20, #22c55e);
+  --gradient-success: linear-gradient(to right, #00b09b, #96c93d);
+  --gradient-main: linear-gradient(to right, #0f172a, #111827, #052e16);
+}
