@@ -1,6 +1,6 @@
 'use client'
 
-import {Timer, History, Lightbulb, Settings, House, CirclePlay, CircleStop} from 'lucide-react'
+import {Timer, CirclePlay, CircleStop} from 'lucide-react'
 import { useState } from 'react'
 import Toastify from 'toastify-js'
 import MenuButton from "./components/MenuButton";
