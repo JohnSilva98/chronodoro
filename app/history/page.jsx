@@ -6,8 +6,12 @@ import { useState } from 'react'
 
 const History = () => {
 
-const [hasHistory, setHasHistory] = useState(false)
+const [hasHistory, setHasHistory] = useState(true)
 
+const handleClearHistory = (e) => {
+  e.preventDefault();
+  setHasHistory(false)
+}
   
   return (
     <div className="flex justify-center h-screen " style={{background: 'var(--gradient-dark)'}}>
@@ -21,9 +25,9 @@ const [hasHistory, setHasHistory] = useState(false)
          {/* menu de botões */}
          <MenuButton />
 
-         <div className='flex items-center gap-2 mb-4'>
-          <h1 className="text-[var(--text-primary)] text-xl font-semibold">Apagar histórico</h1>
-          <Trash size={42} className='text-[var(--text-primary)] cursor-pointer hover:bg-[var(--error)]/80 duration-300 transition-colors border border-[var(--border-dark)] p-[10px] rounded-lg bg-[var(--error)]' />
+         <div className={`flex items-center gap-2 mb-4 ${hasHistory ? '' : 'hidden'}`}>
+          <h1 className="text-[var(--text-primary)] text-xl font-semibold cursor-pointer hover:text-[var(--error)] duration-300 transition-colors">Apagar histórico</h1>
+          <Trash onClick={handleClearHistory} size={42} className='text-[var(--text-primary)] cursor-pointer hover:bg-[var(--error)]/80 duration-300 transition-colors border border-[var(--border-dark)] p-[10px] rounded-lg bg-[var(--error)]' />
          </div>
 
          {/* tabela de histórico */}
