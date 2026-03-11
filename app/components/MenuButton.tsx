@@ -5,7 +5,10 @@ type AvailableThemes = 'dark' | 'light'
 
 const MenuButton = () => {
 
-  const [theme, setTheme] = useState<AvailableThemes>('dark')
+  const [theme, setTheme] = useState<AvailableThemes>(()=>{
+    const storageTheme = localStorage.getItem('theme') as AvailableThemes || 'dark'
+    return storageTheme
+  })
   
   const toggleTheme = (event: React.MouseEvent<HTMLAnchorElement>) => {
     
@@ -16,8 +19,14 @@ const MenuButton = () => {
     })
   }
 
+  const toggleThemeIcon = {
+    dark:   <Lightbulb color="black" size={48} className='cursor-pointer hover:bg-[var(--primary-green-hover)] duration-300 transition-colors border border-[var(--border-dark)] p-[10px] rounded-lg bg-[var(--bg-icons)]' />, 
+    light: <LightbulbOff color="black" size={48} className='cursor-pointer hover:bg-[var(--primary-green-hover)] duration-300 transition-colors border border-[var(--border-dark)] p-[10px] rounded-lg bg-[var(--bg-icons)]' />
+
+  }
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme)
+    localStorage.setItem('theme', theme)
   }, [theme])
 
   return (
@@ -35,7 +44,7 @@ const MenuButton = () => {
          <SettingsIcon color="black" size={48} className='cursor-pointer hover:bg-[var(--primary-green-hover)] duration-300 transition-colors border border-[var(--border-dark)] p-[10px] rounded-lg bg-[var(--bg-icons)]' />
        </a>
        <a href="" onClick={toggleTheme}>
-         <Lightbulb color="black" size={48} className='cursor-pointer hover:bg-[var(--primary-green-hover)] duration-300 transition-colors border border-[var(--border-dark)] p-[10px] rounded-lg bg-[var(--bg-icons)]' /> 
+         {toggleThemeIcon[theme]}
        </a>
        
        </div>
