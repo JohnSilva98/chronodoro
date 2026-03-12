@@ -51,7 +51,7 @@ export default function MainForm() {
           <p className='text-[var(--text-primary)]'> <span className='text-[var(--primary-green-light)] font-semibold'>{shortBreakTime} minutos</span></p>
         </div>
         <Cicles />
-        <button onClick={handleStart} className={`text-[var(--text-primary)] hover:bg-[var(--primary-green-hover)] duration-300 border border-[var(--border-dark)] p-2 rounded-lg mt-2 cursor-pointer px-8 ${started ? 'bg-[var(--error)] hover:bg-[var(--error)]/80' : 'bg-[var(--success)] hover:bg-[var(--success)]/80'}`}>{started ? <CircleStop size={24} color="white" /> : <CirclePlay size={24} color="white" />}</button>
+        <button onClick={handleStart} className={`text-[var(--text-primary)] hover:bg-[var(--primary-green-hover)] duration-300 border border-[var(--border-dark)] p-2 rounded-lg mt-2 mb-4 cursor-pointer px-8 ${started ? 'bg-[var(--error)] hover:bg-[var(--error)]/80' : 'bg-[var(--success)] hover:bg-[var(--success)]/80'}`}>{started ? <CircleStop size={24} color="white" /> : <CirclePlay size={24} color="white" />}</button>
        </form>
        
   )

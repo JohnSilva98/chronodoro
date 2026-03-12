@@ -12,18 +12,14 @@ export default function Home() {
   
  
   return (
-    <div className=" flex justify-center ">
-      {/* cabeçalho da pagina */}
-      <main className=" w-full h-screen" style={{background: 'var(--gradient-main)'}} >
-        <Heading />
-       {/* menu de botões */}
-       <MenuButton />
-       {/* contador */}
-       <Countdown />
-       {/* formulario principal */}
-       <MainForm />
-      
-      <Footer />
+    <div className="flex justify-center h-full">
+      <main className="w-full h-full" style={{background: 'var(--gradient-main)'}} >
+        {/* menu de botões */}
+        <MenuButton />
+        {/* contador */}
+        <Countdown />
+        {/* formulario principal */}
+        <MainForm />
       </main>
     </div>
   );
