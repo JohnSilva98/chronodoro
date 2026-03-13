@@ -31,6 +31,7 @@ export default function MainForm() {
     if(started === true) {
       setStarted(false)
       setTask('')
+      
     } else {
       setStarted(true)
     }

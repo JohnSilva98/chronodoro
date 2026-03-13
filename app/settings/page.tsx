@@ -27,51 +27,49 @@ export default function Settings() {
     }
 
   return (
-    <div className="flex items-center justify-center h-screen" style={{background: 'var(--gradient-dark)'}}>
-  
-  <div className="flex flex-col items-center">
-   <div className="flex items-center gap-2 mb-6 mt-6">
-     <h1 className="text-[var(--text-primary)] text-3xl font-bold">Configurações</h1>
-    <Settings2 size={36}  />
-   </div>
+    <div className="flex items-center justify-center h-full">
+      <div className="flex flex-col items-center">
+        <div className="flex items-center gap-2 mb-6 mt-6">
+          <h1 className="text-[var(--text-primary)] text-3xl font-bold">Configurações</h1>
+          <Settings2 size={36} />
+        </div>
 
-      {/* menu de botões */}
-      <MenuButton />
+        {/* menu de botões */}
+        <MenuButton />
 
-    <form className="flex flex-col justify-center mb-5">
-      <label>Tempo de foco</label>
-      <input
-        className="bg-[var(--bg-dark-1)] text-[var(--text-primary)] rounded-lg p-2 w-[200px] border-b-2 border-[var(--border-light)] mb-5"
-        type="number"
-        value={focusTime}
-        onChange={(e) => setFocusTime(parseInt(e.target.value))}
-      />
+        <form className="flex flex-col justify-center mb-5">
+          <label>Tempo de foco</label>
+          <input
+            className="bg-[var(--bg-dark-1)] text-[var(--text-primary)] rounded-lg p-2 w-[200px] border-b-2 border-[var(--border-light)] mb-5"
+            type="number"
+            value={focusTime}
+            onChange={(e) => setFocusTime(parseInt(e.target.value))}
+          />
 
-      <label>Tempo de pausa curta</label>
-      <input
-        className="bg-[var(--bg-dark-1)] text-[var(--text-primary)] rounded-lg p-2 w-[200px] border-b-2 border-[var(--border-light)] mb-5"
-        type="number"
-        value={shortBreakTime}
-        onChange={(e) => setShortBreakTime(parseInt(e.target.value))}
-      />
+          <label>Tempo de pausa curta</label>
+          <input
+            className="bg-[var(--bg-dark-1)] text-[var(--text-primary)] rounded-lg p-2 w-[200px] border-b-2 border-[var(--border-light)] mb-5"
+            type="number"
+            value={shortBreakTime}
+            onChange={(e) => setShortBreakTime(parseInt(e.target.value))}
+          />
 
-      <label>Tempo de pausa longa</label>
-      <input
-        className="bg-[var(--bg-dark-1)] text-[var(--text-primary)] rounded-lg p-2 w-[200px] border-b-2 border-[var(--border-light)] mb-5"
-        type="number"
-        value={longBreakTime}
-        onChange={(e) => setLongBreakTime(parseInt(e.target.value))}
-      />
+          <label>Tempo de pausa longa</label>
+          <input
+            className="bg-[var(--bg-dark-1)] text-[var(--text-primary)] rounded-lg p-2 w-[200px] border-b-2 border-[var(--border-light)] mb-5"
+            type="number"
+            value={longBreakTime}
+            onChange={(e) => setLongBreakTime(parseInt(e.target.value))}
+          />
 
-      <button
-        onClick={handleSave}
-        className="bg-[var(--primary-green-light)] hover:bg-[var(--primary-green-hover)] duration-300 text-white rounded-lg p-2 w-[200px] mt-4 cursor-pointer"
-      >
-        Salvar
-      </button>
-    </form>
-  </div>
-
-</div>
+          <button
+            onClick={handleSave}
+            className="bg-[var(--primary-green-light)] hover:bg-[var(--primary-green-hover)] duration-300 text-white rounded-lg p-2 w-[200px] mt-4 cursor-pointer"
+          >
+            Salvar
+          </button>
+        </form>
+      </div>
+    </div>
   )
 }

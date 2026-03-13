@@ -28,6 +28,11 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen`}
+        style={{
+          background: 'var(--gradient-main)',
+          color: 'var(--text-primary)',
+          transition: 'background-color 0.3s ease, color 0.3s ease'
+        }}
       >
         <Heading />
         <main className="flex-1">
