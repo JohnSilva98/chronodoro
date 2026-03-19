@@ -55,7 +55,7 @@ const handleClearHistory = (e) => {
         </div>
 
         {/* tabela de histórico */}
-        <div className="bg-gray-600 rounded-lg p-4 w-[80vw] rounded-lg">
+        <div className="bg-[var(--bg-dark-2)] rounded-lg p-4 w-[80vw] border border-[var(--border-light)]">
           <table className="w-full">
             <thead className="mb-4">
               <tr className="border-b [border-color:var(--border-light)]">
