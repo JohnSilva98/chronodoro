@@ -2,7 +2,7 @@ import { useTaskContext } from "../contexts/TaskContext/useTaskContext"
 
 
 const Countdown = () => {
-  const {state, setState} = useTaskContext()
+  const {state} = useTaskContext()
   
   return (
       <div className="flex flex-col items-center justify-center mt-7">
