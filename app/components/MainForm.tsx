@@ -5,6 +5,7 @@ import { CirclePlay, CircleStop } from 'lucide-react'
 import { useTaskContext } from "../contexts/TaskContext/useTaskContext"
 import { TaskModel } from "../models/TaskModel"
 import { getNextCycle } from "../utils/GetNextCycle"
+import { getNextCycleType } from "../utils/GetNextCycleType"
 
 
 export default function MainForm() {
@@ -13,7 +14,7 @@ const {setState, state} = useTaskContext()
 const [started, setStarted] = useState(false)
 
 const nextCycle = getNextCycle(state.currentCycle)
-
+const nextCycleType = getNextCycleType(nextCycle)
  
 
   const TaskNameInput = useRef<HTMLInputElement>(null)
@@ -43,8 +44,8 @@ const nextCycle = getNextCycle(state.currentCycle)
       startDate: Date.now(),
       CompleteDate: null,
       interruptDate: null,
-      duration: 1,
-      type: 'workTime'
+      duration: state.config[nextCycleType],
+      type: nextCycleType
     }
 
     const secondsRemaining = newTask.duration * 60;
