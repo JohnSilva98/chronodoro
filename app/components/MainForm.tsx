@@ -62,8 +62,12 @@ const tipsForWhenNoActiveTask = {
 
     dispatch({type: TaskActionsTypes.START_TASK, payload: newTask})
 
-    
+    const worker = new Worker(new URL('../workers/TimerWorker.js', import.meta.url))
+    worker.postMessage("teste")
+
+
   }
+
 
 function handleInterruptTask() {
   dispatch({type: TaskActionsTypes.INTERRUPT_TASK })
