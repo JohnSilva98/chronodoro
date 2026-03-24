@@ -20,8 +20,8 @@ const MenuButton = () => {
   }
 
   const toggleThemeIcon = {
-    dark:   <Lightbulb color="black" size={48} className='cursor-pointer hover:bg-[var(--primary-green-hover)] duration-300 transition-colors border border-[var(--border-dark)] p-[10px] rounded-lg bg-[var(--bg-icons)]' />, 
-    light: <LightbulbOff color="black" size={48} className='cursor-pointer hover:bg-[var(--primary-green-hover)] duration-300 transition-colors border border-[var(--border-dark)] p-[10px] rounded-lg bg-[var(--bg-icons)]' />
+    dark:   <Lightbulb color="black" size={48} className='cursor-pointer hover:bg-(--primary-green-hover) duration-300 transition-colors border border-(--border-dark) p-[10px] rounded-lg bg-(--bg-icons)' />, 
+    light: <LightbulbOff color="black" size={48} className='cursor-pointer hover:bg-(--primary-green-hover) duration-300 transition-colors border border-(--border-dark) p-[10px] rounded-lg bg-(--bg-icons)' />
 
   }
   useEffect(() => {
@@ -35,13 +35,13 @@ const MenuButton = () => {
        <div className="flex justify-center gap-4 mt-3 mb-6">
 
        <a href="/">
-         <House color="black" size={48} className='cursor-pointer hover:bg-[var(--primary-green-hover)] duration-300 transition-colors border border-[var(--border-dark)] p-[10px] rounded-lg bg-[var(--bg-icons)]' />
+         <House color="black" size={48} className='cursor-pointer hover:bg-(--primary-green-hover) duration-300 transition-colors border border-(--border-dark) p-[10px] rounded-lg bg-(--bg-icons)' />
        </a>
        <a href="/history">
-         <History color="black" size={48} className='cursor-pointer hover:bg-[var(--primary-green-hover)] duration-300 transition-colors border border-[var(--border-dark)] p-[10px] rounded-lg bg-[var(--bg-icons)]' />
+         <History color="black" size={48} className='cursor-pointer hover:bg-(--primary-green-hover) duration-300 transition-colors border border-(--border-dark) p-[10px] rounded-lg bg-(--bg-icons)' />
        </a>
        <a href="/settings">
-         <SettingsIcon color="black" size={48} className='cursor-pointer hover:bg-[var(--primary-green-hover)] duration-300 transition-colors border border-[var(--border-dark)] p-[10px] rounded-lg bg-[var(--bg-icons)]' />
+         <SettingsIcon color="black" size={48} className='cursor-pointer hover:bg-(--primary-green-hover) duration-300 transition-colors border border-(--border-dark) p-[10px] rounded-lg bg-(--bg-icons)' />
        </a>
        <a href="" onClick={toggleTheme}>
          {toggleThemeIcon[theme]}
