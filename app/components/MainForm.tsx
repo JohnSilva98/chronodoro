@@ -4,12 +4,15 @@ import { useRef, useState } from 'react'
 import { CirclePlay, CircleStop } from 'lucide-react'
 import { useTaskContext } from "../contexts/TaskContext/useTaskContext"
 import { TaskModel } from "../models/TaskModel"
+import { getNextCycle } from "../utils/GetNextCycle"
 
 
 export default function MainForm() {
  
-const {setState} = useTaskContext()
+const {setState, state} = useTaskContext()
 const [started, setStarted] = useState(false)
+
+const nextCycle = getNextCycle(state.currentCycle)
 
  
 
@@ -50,7 +53,7 @@ const [started, setStarted] = useState(false)
         ...prevState,
         config: {...prevState.config},
         activeTask: newTask,
-        currentCycle: 1,
+        currentCycle: nextCycle,
         secondsRemaining,
         formattedSeconds: '00:00',
         tasks:[...prevState.tasks, newTask],
