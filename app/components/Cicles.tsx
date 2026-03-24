@@ -6,6 +6,7 @@ export function Cicles() {
   const { state } = useTaskContext()
 
   const cycleStep = Array.from({ length: state.currentCycle })
+  
 
   const cycleColors = {
     workTime: 'bg-[var(--success)]',
@@ -23,7 +24,7 @@ export function Cicles() {
           return (
             <span
               aria-label={`Ciclo ${index + 1}: ${nextCycleType}`}
-              key={index}
+              key={`${nextCycleType}-${nextCycle}`}
               className={`w-4 h-4 rounded-full ${cycleColors[nextCycleType]}`}
             ></span>
           )
