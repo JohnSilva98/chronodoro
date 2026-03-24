@@ -9,7 +9,7 @@ import { TaskModel } from "../models/TaskModel"
 export default function MainForm() {
  
 const {setState} = useTaskContext()
-
+const [started, setStarted] = useState(false)
 
  
 
@@ -66,9 +66,9 @@ const {setState} = useTaskContext()
         <input ref={TaskNameInput} onFocus={()=> {"border-(--primary-green-light)"}}  className='text-(--text-primary) border-b-2 border-(--border-light) p-2 rounded-sm' type="text" id="task" name="task"  />
         <div className="flex items-center gap-2 mt-3">
           <p className='text-(--text-primary)'>Nesse ciclo</p>
-          <p className='text-(--text-primary)'> <span className='text-(--primary-green-light) font-semibold'>{cicle}</span></p>
+          <p className='text-(--text-primary)'> <span className='text-(--primary-green-light) font-semibold'>{}</span></p>
           <p className='text-(--text-primary)'> <span className='text-(--text-primary)'>por</span></p>
-          <p className='text-(--text-primary)'> <span className='text-(--primary-green-light) font-semibold'>{shortBreakTime} minutos</span></p>
+          <p className='text-(--text-primary)'> <span className='text-(--primary-green-light) font-semibold'>{} minutos</span></p>
         </div>
         <Cicles />
         <button  type="submit" className={`text-(--text-primary) hover:bg-(--primary-green-hover) duration-300 border border-(--border-dark) p-2 rounded-lg mt-2 mb-4 cursor-pointer px-8 ${started ? 'bg-(--error) hover:bg-(--error)/80' : 'bg-(--success) hover:bg-(--success)/80'}`}>{started ? <CircleStop size={24} color="white" /> : <CirclePlay size={24} color="white" />}</button>
