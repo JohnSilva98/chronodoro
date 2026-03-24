@@ -2,9 +2,12 @@ import { Cicles } from "./Cicles"
 import Toastify from 'toastify-js'
 import { useState } from 'react'
 import { CirclePlay, CircleStop } from 'lucide-react'
+import { useTaskContext } from "../contexts/TaskContext/useTaskContext"
 
 
 export default function MainForm() {
+
+  const {setState} = useTaskContext()
 
  const [task, setTask] = useState('')
  const [started, setStarted] = useState(false)
