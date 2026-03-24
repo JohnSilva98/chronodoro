@@ -5,6 +5,7 @@ import MainForm from "./components/MainForm";
 import Countdown from "./components/Countdown";
 import { TaskStateModel } from "./models/TaskStateModel";
 import { useState } from "react";
+import { TaskContext } from "./contexts/TaskContext/page";
 
 export default function Home() {
 
@@ -24,12 +25,14 @@ export default function Home() {
   const [state, setState] = useState(initialState);
 
   return (
+    <TaskContext.Provider value={{chave:321}}>
     <div className="flex justify-center h-full">
       <main className="w-full h-full">
         <MenuButton />
-        <Countdown formattedSeconds={state.formattedSeconds} />
+        <Countdown />
         <MainForm />
       </main>
     </div>
+    </TaskContext.Provider>
   );
 }

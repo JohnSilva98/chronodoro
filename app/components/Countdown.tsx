@@ -1,11 +1,9 @@
-interface CountdownProps {
-  formattedSeconds: string
-}
 
-const Countdown = ({ formattedSeconds }: CountdownProps) => {
+
+const Countdown = () => {
   return (
       <div className="flex flex-col items-center justify-center mt-7">
-       <h1 className='text-[var(--text-primary)] text-8xl font-bold'>{formattedSeconds}</h1>
+       <h1 className='text-[var(--text-primary)] text-8xl font-bold'>00:00</h1>
        </div>
   )
 }
