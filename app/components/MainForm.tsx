@@ -74,7 +74,9 @@ const nextCycleType = getNextCycleType(nextCycle)
           <p className='text-(--text-primary)'> <span className='text-(--text-primary)'>por</span></p>
           <p className='text-(--text-primary)'> <span className='text-(--primary-green-light) font-semibold'>{} minutos</span></p>
         </div>
+        {state.currentCycle > 0 && (
         <Cicles />
+        )}
         <button  type="submit" className={`text-(--text-primary) hover:bg-(--primary-green-hover) duration-300 border border-(--border-dark) p-2 rounded-lg mt-2 mb-4 cursor-pointer px-8 ${started ? 'bg-(--error) hover:bg-(--error)/80' : 'bg-(--success) hover:bg-(--success)/80'}`}>{started ? <CircleStop size={24} color="white" /> : <CirclePlay size={24} color="white" />}</button>
        </form>
        
