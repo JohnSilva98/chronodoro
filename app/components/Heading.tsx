@@ -9,8 +9,8 @@ const Heading = ({ title = "Chronodoro", subtitle = "Pomodoro tracker" }: Headin
   return (
     <div className="mt-5 flex flex-col items-center justify-center">
         <Timer color="#1a7a20e6" size={48} className='mb-1' />
-         <h1 className="text-(--text-primary) text-3xl font-bold mb-1">{title}</h1>
-        <p className="text-(--text-secondary) text-2xl">{subtitle}</p>
+         <h1 className="text-(--text-default) text-3xl font-bold mb-1">{title}</h1>
+        <p className="text-(--text-muted) text-2xl">{subtitle}</p>
         </div>
   )
 }

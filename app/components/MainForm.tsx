@@ -1,5 +1,4 @@
 import { Cicles } from "./Cicles"
-import Toastify from 'toastify-js'
 import { useRef, useState } from 'react'
 import { CirclePlay, CircleStop } from 'lucide-react'
 import { useTaskContext } from "../contexts/TaskContext/useTaskContext"
@@ -7,6 +6,7 @@ import { TaskModel } from "../models/TaskModel"
 import { getNextCycle } from "../utils/GetNextCycle"
 import { getNextCycleType } from "../utils/GetNextCycleType"
 import { TaskActionsTypes } from "../contexts/TaskContext/TaskActions"
+import { toast } from "react-toastify"
 
 export default function MainForm() {
  
@@ -35,16 +35,12 @@ const tipsForWhenNoActiveTask = {
     const taskName = TaskNameInput.current.value.trim()
 
     if(!taskName) {
-      Toastify({text: 'Por favor, insira uma tarefa', duration: 3000,
-        close: true, //allow close the toast
-        gravity: "top", // `top` or `bottom`
-        position: "right", // `left`, `center` or `right`
-        stopOnFocus: true, // Prevents dismissing of toast on hover
-      
+      toast.warn('Por favor, insira uma tarefa', {
         style: {
-          background: "linear-gradient(to right, #1a7a20, #22c55e)",
+          background: 'var(--toastify-color-warning)',
+          color: 'var(--text-over-warning)'
         }
-      }).showToast();
+      })
       return;
     }
 
@@ -73,10 +69,10 @@ function handleInterruptTask() {
 }
   return (
  <form onSubmit={handleCreateNewTask} className="flex flex-col items-center justify-center mt-2">
-        <label className='text-(--text-primary) mb-4'>Task:</label>
+        <label className="text-(--text-muted) mb-4">Task:</label>
         <input ref={TaskNameInput}
-         onFocus={()=> {"border-(--primary-green-light)"}}  
-        className='text-(--text-primary) border-b-2 border-(--border-light) p-2 rounded-sm'
+         onFocus={()=> {"border-[var(--primary)]"}}  
+        className="text-(--text-default) border-b-2 border-(--gray-700) p-2 rounded-sm"
          type="text" 
          id="task" 
          name="task" 
@@ -93,14 +89,14 @@ function handleInterruptTask() {
         key="start"
         title="Iniciar nova tarefa"
         aria-label="Iniciar nova tarefa"
-        className={`text-(--text-primary) bg-(--primary-green-light) hover:bg-(--primary-green-hover) duration-300 border border-(--border-dark) p-2 rounded-lg mt-2 mb-4 cursor-pointer px-8`}><CirclePlay size={24} color="white" /></button>
+        className={`text-(--text-over-primary) bg-(--primary) hover:bg-(--primary-dark) duration-300 border border-(--gray-700) p-2 rounded-lg mt-2 mb-4 cursor-pointer px-8`}><CirclePlay size={24} color="white" /></button>
         )} {!!state.activeTask && (<button  
         key="stop"
         type="button"
         onClick={handleInterruptTask}
         title="Interromper tarefa atual"
         aria-label="Interromper tarefa atual"
-        className={`text-(--text-primary) bg-(--error) hover:bg-(--error/60) duration-300 border border-(--border-dark) p-2 rounded-lg mt-2 mb-4 cursor-pointer px-8`}><CircleStop size={24} color="white" /></button>)}
+        className={`text-(--text-over-error) bg-(--error) hover:bg-(--error/80) duration-300 border border-(--gray-700) p-2 rounded-lg mt-2 mb-4 cursor-pointer px-8`}><CircleStop size={24} color="white" /></button>)}
         
         </form>
        

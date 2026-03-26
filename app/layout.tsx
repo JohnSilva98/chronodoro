@@ -49,7 +49,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen`}
         style={{
           background: 'var(--gradient-main)',
-          color: 'var(--text-primary)',
+          color: 'var(--text-default)',
           transition: 'background-color 0.3s ease, color 0.3s ease'
         }}
       >

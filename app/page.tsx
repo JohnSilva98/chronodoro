@@ -4,6 +4,7 @@ import MenuButton from "./components/MenuButton";
 import MainForm from "./components/MainForm";
 import Countdown from "./components/Countdown";
 import { TaskContextProvider } from "./contexts/TaskContext/TaskContextProvider";
+import { Bounce, ToastContainer } from "react-toastify";
 
 export default function Home() {
 
@@ -15,6 +16,20 @@ export default function Home() {
         <MenuButton />
         <Countdown />
         <MainForm />
+        <ToastContainer
+position="top-right"
+autoClose={5000}
+hideProgressBar={false}
+newestOnTop={false}
+closeOnClick={true}
+rtl={false}
+pauseOnFocusLoss
+draggable
+pauseOnHover
+theme="light"
+transition={Bounce}
+
+/>
       </main>
     </div>
     </TaskContextProvider>
