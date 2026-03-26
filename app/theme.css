@@ -107,8 +107,8 @@
   --link-hover: #065f46;
 
   /* 🔔 Toastify no modo claro */
-  --toastify-text-color-light: #e6e9f0;
-  --toastify-text-color-dark: #e6e9f0;
+  --toastify-text-color-light: #0a0f1a;
+  --toastify-text-color-dark: #0a0f1a;
 
   /* 🎨 Gradientes */
   --gradient-main: linear-gradient(to right, #e6e9f0, #cdd3e1, #dcfce7);

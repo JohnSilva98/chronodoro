@@ -36,12 +36,7 @@ const tipsForWhenNoActiveTask = {
     const taskName = TaskNameInput.current.value.trim()
 
     if(!taskName) {
-      toast.warn('Por favor, insira uma tarefa', {
-        style: {
-          background: 'var(--toastify-color-warning)',
-          color: 'var(--text-over-warning)'
-        }
-      })
+      toast.warn('Por favor, insira uma tarefa')
       return;
     }
 
