@@ -78,6 +78,11 @@
 
   /* 🎨 Gradientes */
   --gradient-main: linear-gradient(to right, #0a0f1a, #181f2e, #065f46);
+
+  /* 🎨 Cores dos Botões */
+  --btn-primary: var(--primary);
+  --btn-primary-hover: var(--primary-dark);
+  --btn-text: #ffffff;
 }
 
 /* 🌞 Modo Claro - Inverte algumas cores para manter o contraste */
@@ -107,4 +112,9 @@
 
   /* 🎨 Gradientes */
   --gradient-main: linear-gradient(to right, #e6e9f0, #cdd3e1, #dcfce7);
+
+  /* 🎨 Cores dos Botões (sem verde no tema claro) */
+  --btn-primary: #cdd3e1;
+  --btn-primary-hover: #aab3cc;
+  --btn-text: #0a0f1a;
 }

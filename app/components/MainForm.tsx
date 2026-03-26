@@ -8,6 +8,7 @@ import { getNextCycleType } from "../utils/GetNextCycleType"
 import { TaskActionsTypes } from "../contexts/TaskContext/TaskActions"
 import { toast } from "react-toastify"
 
+
 export default function MainForm() {
  
 const {dispatch, state} = useTaskContext()
@@ -89,7 +90,7 @@ function handleInterruptTask() {
         key="start"
         title="Iniciar nova tarefa"
         aria-label="Iniciar nova tarefa"
-        className={`text-(--text-over-primary) bg-(--primary) hover:bg-(--primary-dark) duration-300 border border-(--gray-700) p-2 rounded-lg mt-2 mb-4 cursor-pointer px-8`}><CirclePlay size={24} color="white" /></button>
+        className={`text-(--btn-text) bg-(--btn-primary) hover:bg-(--btn-primary-hover) duration-300 border border-(--gray-700) p-2 rounded-lg mt-2 mb-4 cursor-pointer px-8`}><CirclePlay size={24} color="white" /></button>
         )} {!!state.activeTask && (<button  
         key="stop"
         type="button"
