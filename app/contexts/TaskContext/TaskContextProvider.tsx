@@ -13,12 +13,18 @@ export function TaskContextProvider({children}: TaskContextProviderProps){
      const worker = timeWorkerManager.getInstance()
 
      worker.onmessage((e) => {
-       console.log(e);
+        const countdownSeconds = e.data
+       console.log(countdownSeconds);
+        if(countdownSeconds <= 0){
+            console.log("Task completed");
+            worker.terminate()
+        }
      })
    
 
      useEffect(()=>{
        if(!state.activeTask){
+        console.log("No active task, terminating worker");
         worker.terminate()
        } 
        worker.postMessage(state)
