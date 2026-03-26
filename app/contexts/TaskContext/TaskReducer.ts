@@ -1,5 +1,5 @@
 import { TaskStateModel } from "@/app/models/TaskStateModel";
-import { TaskActionModel, TaskActionsTypes } from "./TaskActions";
+import {  TaskActionsTypes } from "./TaskActions";
 import { getNextCycle } from "@/app/utils/GetNextCycle";
 import { formatSecondsToMinutes } from "@/app/utils/FormattSecondsToMinutes";
 
