@@ -3,6 +3,7 @@ import { useEffect, useReducer } from "react";
 import { initialState } from "./initialState";
 import { taskReducer } from "./TaskReducer";
 import { timeWorkerManager } from "@/app/workers/TimeWorkerManager";
+import { TaskActionsTypes } from "./TaskActions";
 
 type TaskContextProviderProps = {
     children: React.ReactNode
@@ -16,13 +17,21 @@ export function TaskContextProvider({children}: TaskContextProviderProps){
         const countdownSeconds = e.data
        console.log(countdownSeconds);
         if(countdownSeconds <= 0){
-            console.log("Task completed");
+          dispatch({
+                type:TaskActionsTypes.COMPLETE_TASK,
+            })
             worker.terminate()
+        }else{
+            dispatch({
+                type:TaskActionsTypes.COUNT_DOWN,
+                payload:{secondsRemaining: countdownSeconds}
+            })
         }
      })
    
 
      useEffect(()=>{
+        console.log(state)
        if(!state.activeTask){
         console.log("No active task, terminating worker");
         worker.terminate()
