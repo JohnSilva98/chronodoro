@@ -11,6 +11,9 @@ import { GetTaskStatus } from '../utils/GetTaskStatus'
 const History = () => {
 
   const {state} = useTaskContext()
+  const sortedArray = [...state.tasks].sort((a, b)=>{
+    return b.startDate - a.startDate
+  })
 
 const [hasHistory, setHasHistory] = useState(true)
 
@@ -49,7 +52,7 @@ const handleClearHistory = (e) => {
               </tr>
             </thead>
             <tbody>
-              {state.tasks.map((task)=> {
+              {sortedArray.map((task)=> {
                 const typeMap = {
                   'workTime': 'Foco',
                   'shortBreak': 'Descanso curto',
