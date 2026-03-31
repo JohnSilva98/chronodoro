@@ -3,6 +3,7 @@ import MenuButton from '../components/MenuButton'
 import { ClipboardClock, Trash } from 'lucide-react'
 import { useState } from 'react'
 import { useTaskContext } from '../contexts/TaskContext/useTaskContext'
+import { formattDate } from '../utils/formattDate'
 
 
 
@@ -51,7 +52,7 @@ const handleClearHistory = (e) => {
                 <tr key={task.id}>
                   <td className="text-(--text-primary) py-2">{task.name}</td>
                   <td className="text-(--text-primary) py-2">{task.duration} min</td>
-                  <td className="text-(--text-primary) py-2">{new Date(task.startDate).toISOString()}</td>
+                  <td className="text-(--text-primary) py-2">{formattDate(task.startDate)}</td>
                   <td className="text-(--text-primary) py-2">{task.interruptDate}</td>
                   <td className="text-(--text-primary) py-2">{task.type}</td>
                 </tr>

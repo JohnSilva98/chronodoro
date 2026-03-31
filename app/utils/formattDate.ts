@@ -1,7 +1,7 @@
 import { format } from "date-fns"
 
 
-export function fomrattDate(timestamp: number){
+export function formattDate(timestamp: number){
     const date = new Date(timestamp)
     return format(date, 'dd/MM/yyyy HH:mm')
 }
