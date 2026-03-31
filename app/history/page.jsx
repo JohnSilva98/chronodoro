@@ -4,6 +4,7 @@ import { ClipboardClock, Trash } from 'lucide-react'
 import { useState } from 'react'
 import { useTaskContext } from '../contexts/TaskContext/useTaskContext'
 import { formattDate } from '../utils/formattDate'
+import { GetTaskStatus } from '../utils/GetTaskStatus'
 
 
 
@@ -53,7 +54,7 @@ const handleClearHistory = (e) => {
                   <td className="text-(--text-primary) py-2">{task.name}</td>
                   <td className="text-(--text-primary) py-2">{task.duration} min</td>
                   <td className="text-(--text-primary) py-2">{formattDate(task.startDate)}</td>
-                  <td className="text-(--text-primary) py-2">{task.interruptDate}</td>
+                  <td className="text-(--text-primary) py-2">{GetTaskStatus(task, state.activeTask)}</td>
                   <td className="text-(--text-primary) py-2">{task.type}</td>
                 </tr>
               ))}
