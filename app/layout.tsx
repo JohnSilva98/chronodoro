@@ -4,6 +4,8 @@ import "./globals.css";
 import "toastify-js/src/toastify.css"
 import Heading from "./components/Heading";
 import Footer from "./components/Footer";
+import { TaskContextProvider } from "./contexts/TaskContext/TaskContextProvider";
+import { Bounce, ToastContainer } from "react-toastify";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -53,11 +55,26 @@ export default function RootLayout({
           transition: 'background-color 0.3s ease, color 0.3s ease'
         }}
       >
-        <Heading />
-        <main className="flex-1">
-          {children}
-        </main>
-        <Footer />
+        <TaskContextProvider>
+          <Heading />
+          <main className="flex-1">
+            {children}
+          </main>
+          <Footer />
+          <ToastContainer
+            position="top-right"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick={true}
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="light"
+            transition={Bounce}
+          />
+        </TaskContextProvider>
       </body>
     </html>
   );

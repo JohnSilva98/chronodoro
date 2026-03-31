@@ -1,7 +1,5 @@
 "use client"
-import MenuButton from "../components/MenuButton"
-import Footer from "../components/Footer"
-import Heading from "../components/Heading"
+
 import { Clock, Coffee, Target, Brain } from 'lucide-react'
 
 const About = () => {

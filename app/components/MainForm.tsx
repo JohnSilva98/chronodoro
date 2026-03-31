@@ -10,6 +10,7 @@ import { toast } from "react-toastify"
 
 
 export default function MainForm() {
+
  
 const {dispatch, state} = useTaskContext()
 // ciclos
@@ -58,7 +59,8 @@ const tipsForWhenNoActiveTask = {
 
 
   }
-
+ const lastTaskname = state.tasks[state.tasks.length - 1]?.name || ''
+ 
 
 function handleInterruptTask() {
   dispatch({type: TaskActionsTypes.INTERRUPT_TASK })
@@ -72,7 +74,9 @@ function handleInterruptTask() {
          type="text" 
          id="task" 
          name="task" 
-         disabled={!!state.activeTask} />
+         disabled={!!state.activeTask} 
+         defaultValue={lastTaskname}
+         />
         <div className="flex items-center gap-2 mt-3">
           {!!state.activeTask && tipsForWhenActiveTask[state.activeTask.type]}
           {!state.activeTask && tipsForWhenNoActiveTask[nextCycleType]}

@@ -1,12 +1,14 @@
 
+'use client'
+
 import { createContext } from "react";
 import { TaskStateModel } from "@/app/models/TaskStateModel";
 import { initialState } from "./initialState";
-import { TaskActionModel } from "./TaskActions";
+import { TaskAction } from "./TaskActions";
 
   type TaskContextProps ={
     state: TaskStateModel
-    dispatch: React.Dispatch<TaskActionModel>
+    dispatch: React.Dispatch<TaskAction>
   }
 
 

@@ -1,3 +1,6 @@
+
+'use client'
+
 import { TaskContext } from "./TaskContext";
 import { useEffect, useReducer, useRef } from "react";
 import { initialState } from "./initialState";
@@ -40,6 +43,8 @@ export function TaskContextProvider({children}: TaskContextProviderProps){
        if(!state.activeTask){
         worker.terminate()
        } 
+
+       document.title = `${state.formattedSeconds} - Chronodoro`
        worker.postMessage(state)
      }, [worker, state])
 
