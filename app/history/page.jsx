@@ -49,15 +49,21 @@ const handleClearHistory = (e) => {
               </tr>
             </thead>
             <tbody>
-              {state.tasks.map((task)=> (
+              {state.tasks.map((task)=> {
+                const typeMap = {
+                  'workTime': 'Foco',
+                  'shortBreak': 'Descanso curto',
+                  'longBreak': 'Descanso longo'
+                }
+                return (
                 <tr key={task.id}>
                   <td className="text-(--text-primary) py-2">{task.name}</td>
                   <td className="text-(--text-primary) py-2">{task.duration} min</td>
                   <td className="text-(--text-primary) py-2">{formattDate(task.startDate)}</td>
                   <td className="text-(--text-primary) py-2">{GetTaskStatus(task, state.activeTask)}</td>
-                  <td className="text-(--text-primary) py-2">{task.type}</td>
+                  <td className="text-(--text-primary) py-2">{typeMap[task.type]}</td>
                 </tr>
-              ))}
+              )})}
             </tbody>
           </table>
         </div>
