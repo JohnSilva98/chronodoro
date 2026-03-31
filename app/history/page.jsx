@@ -2,39 +2,19 @@
 import MenuButton from '../components/MenuButton'
 import { ClipboardClock, Trash } from 'lucide-react'
 import { useState } from 'react'
+import { useTaskContext } from '../contexts/TaskContext/useTaskContext'
+
 
 
 const History = () => {
 
+  const {state} = useTaskContext()
 
-const [tasks, setTasks] = useState([
-  {
-    name: "Task 1",
-    tempo: "25:00",
-    data: "2025-10-15",
-    status: "Concluído",
-    tipo: "Pomodoro",
-  },
-  {
-    name: "Task 2",
-    tempo: "25:00",
-    data: "2025-04-12",
-    status: "Interrompido",
-    tipo: "Pomodoro",
-  },
-  {
-    name: "Task 3",
-    tempo: "25:00",
-    data: "2025-10-15",
-    status: "Concluído",
-    tipo: "Pomodoro",
-  }
-])
 const [hasHistory, setHasHistory] = useState(true)
 
 const handleClearHistory = (e) => {
   e.preventDefault();
-  setTasks([])
+  // TODO: Implement clear history functionality
   setHasHistory(false)
 }
   
@@ -67,13 +47,13 @@ const handleClearHistory = (e) => {
               </tr>
             </thead>
             <tbody>
-              {tasks.map((task, index)=> (
-                <tr key={index}>
+              {state.tasks.map((task)=> (
+                <tr key={task.id}>
                   <td className="text-(--text-primary) py-2">{task.name}</td>
-                  <td className="text-(--text-primary) py-2">{task.tempo}</td>
-                  <td className="text-(--text-primary) py-2">{task.data}</td>
-                  <td className="text-(--text-primary) py-2">{task.status}</td>
-                  <td className="text-(--text-primary) py-2">{task.tipo}</td>
+                  <td className="text-(--text-primary) py-2">{task.duration} min</td>
+                  <td className="text-(--text-primary) py-2">{new Date(task.startDate).toISOString()}</td>
+                  <td className="text-(--text-primary) py-2">{task.interruptDate}</td>
+                  <td className="text-(--text-primary) py-2">{task.type}</td>
                 </tr>
               ))}
             </tbody>
