@@ -61,7 +61,7 @@ export default function RootLayout({
             {children}
           </main>
           <Footer />
-          <ToastContainer
+          <ToastContainer className="text-(--toastify-color-light)"
             position="top-right"
             autoClose={5000}
             hideProgressBar={false}
@@ -71,6 +71,7 @@ export default function RootLayout({
             pauseOnFocusLoss
             draggable
             pauseOnHover
+            theme="light"
             transition={Bounce}
           />
         </TaskContextProvider>
