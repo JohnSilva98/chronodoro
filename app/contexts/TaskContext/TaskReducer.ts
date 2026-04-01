@@ -67,6 +67,17 @@ case TaskActionsTypes.COUNT_DOWN:{
 
     }
 }
+case TaskActionsTypes.UPDATE_SETTINGS:{
+    return{
+        ...state,
+        config: {
+            ...state.config,
+            workTime: action.payload.workTime,
+            shortBreak: action.payload.shortBreak,
+            longBreak: action.payload.longBreak
+        }
+    }
+}
 }
 }
 

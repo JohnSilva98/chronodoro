@@ -1,36 +1,35 @@
 "use client"
 import { useState } from "react";
-import Toastify from 'toastify-js'
 import MenuButton from "../components/MenuButton";
 import { Settings2 } from "lucide-react";
+import { toast } from 'react-toastify'
+import { useTaskContext } from "../contexts/TaskContext/useTaskContext"; 
+import { TaskActionsTypes } from "../contexts/TaskContext/TaskActions";
+
 
 export default function Settings() {
 
-     const [focusTime, setFocusTime] = useState(25)
-  const [shortBreakTime, setShortBreakTime] = useState(5)
-  const [longBreakTime, setLongBreakTime] = useState(15)
+  const {state, dispatch} = useTaskContext()
+
+  const [workTime, setWorkTime] = useState(state.config.workTime)
+  const [shortBreak, setShortBreak] = useState(state.config.shortBreak)
+  const [longBreak, setLongBreak] = useState(state.config.longBreak)
 
 
-    const handleSave = () => {
-        Toastify({
-            text: "Configurações salvas com sucesso! 🎉",
-            duration: 3000,
-            close: true,
-            gravity: "top", // `top` or `bottom`
-            position: "center", // `left`, `center` or `right`
-            style: {
-              background: "linear-gradient(to right, #00b09b, #96c93d)", 
-              width: "350px",
-            },
-            
-          }).showToast();
+    const handleSave = (e: React.FormEvent) => {
+      e.preventDefault();
+
+      dispatch({type: TaskActionsTypes.UPDATE_SETTINGS, payload: {workTime, shortBreak, longBreak}})
+
+
+      toast.success("Configurações salvas com sucesso!")
     }
 
   return (
     <div className="flex items-center justify-center h-full">
       <div className="flex flex-col items-center">
         <div className="flex items-center gap-2 mb-6 mt-6">
-          <h1 className="text-[var(--text-primary)] text-3xl font-bold">Configurações</h1>
+          <h1 className="text-(--text-primary) text-3xl font-bold">Configurações</h1>
           <Settings2 size={36} />
         </div>
 
@@ -40,31 +39,31 @@ export default function Settings() {
         <form className="flex flex-col justify-center mb-5">
           <label>Tempo de foco</label>
           <input
-            className="bg-[var(--bg-dark-1)] text-[var(--text-primary)] rounded-lg p-2 w-[200px] border-b-2 border-[var(--border-light)] mb-5"
+            className="bg-(--bg-dark-1) text-(--text-primary) rounded-lg p-2 w-50 border-b-2 border-(--border-light) mb-5"
             type="number"
-            value={focusTime}
-            onChange={(e) => setFocusTime(parseInt(e.target.value))}
+            value={workTime}
+            onChange={(e) => setWorkTime(parseInt(e.target.value))}
           />
 
           <label>Tempo de pausa curta</label>
           <input
-            className="bg-[var(--bg-dark-1)] text-[var(--text-primary)] rounded-lg p-2 w-[200px] border-b-2 border-[var(--border-light)] mb-5"
+            className="bg-(--bg-dark-1) text-(--text-primary) rounded-lg p-2 w-50 border-b-2 border-(--border-light) mb-5"
             type="number"
-            value={shortBreakTime}
-            onChange={(e) => setShortBreakTime(parseInt(e.target.value))}
+            value={shortBreak}
+            onChange={(e) => setShortBreak(parseInt(e.target.value))}
           />
 
           <label>Tempo de pausa longa</label>
           <input
-            className="bg-[var(--bg-dark-1)] text-[var(--text-primary)] rounded-lg p-2 w-[200px] border-b-2 border-[var(--border-light)] mb-5"
+            className="bg-(--bg-dark-1) text-(--text-primary) rounded-lg p-2 w-50 border-b-2 border-(--border-light) mb-5"
             type="number"
-            value={longBreakTime}
-            onChange={(e) => setLongBreakTime(parseInt(e.target.value))}
+            value={longBreak}
+            onChange={(e) => setLongBreak(parseInt(e.target.value))}
           />
 
           <button
             onClick={handleSave}
-            className="bg-[var(--primary-green-light)] hover:bg-[var(--primary-green-hover)] duration-300 text-white rounded-lg p-2 w-[200px] mt-4 cursor-pointer"
+            className="bg-(--btn-primary) hover:bg-(--btn-primary-hover) duration-300 text-(--btn-text) rounded-lg p-2 w-50 mt-4 cursor-pointer"
           >
             Salvar
           </button>

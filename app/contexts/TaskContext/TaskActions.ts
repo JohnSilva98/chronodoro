@@ -5,7 +5,8 @@ export enum TaskActionsTypes {
     INTERRUPT_TASK = "INTERRUPT TASK",
     RESET_STATE = "RESET STATE",
     COUNT_DOWN = "COUNT DOWN",
-    COMPLETE_TASK = 'COMPLETE TASK'
+    COMPLETE_TASK = 'COMPLETE TASK',
+    UPDATE_SETTINGS = 'UPDATE SETTINGS'
 }
 
 export type TaskActionWithPayloiad = {
@@ -14,6 +15,9 @@ export type TaskActionWithPayloiad = {
 } | {
     type:TaskActionsTypes.COUNT_DOWN
     payload:{secondsRemaining:number}
+} |{
+    type: TaskActionsTypes.UPDATE_SETTINGS
+    payload:{workTime:number, shortBreak:number, longBreak:number}
 }
 
 export type TaskActionWithoutPayloiad = {
