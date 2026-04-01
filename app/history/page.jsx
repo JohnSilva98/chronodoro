@@ -5,12 +5,13 @@ import { useState } from 'react'
 import { useTaskContext } from '../contexts/TaskContext/useTaskContext'
 import { formattDate } from '../utils/formattDate'
 import { GetTaskStatus } from '../utils/GetTaskStatus'
+import { TaskActionsTypes } from '../contexts/TaskContext/TaskActions'
 
 
 
 const History = () => {
 
-  const {state} = useTaskContext()
+  const {state, dispatch} = useTaskContext()
   const sortedArray = [...state.tasks].sort((a, b)=>{
     return b.startDate - a.startDate
   })
@@ -19,9 +20,15 @@ const [hasHistory, setHasHistory] = useState(true)
 
 const handleClearHistory = (e) => {
   e.preventDefault();
-  // TODO: Implement clear history functionality
+  if(!confirm("Tem certeza que deseja apagar o histórico?"))return
+
+  dispatch({type: TaskActionsTypes.RESET_STATE})
+     
+
+
   setHasHistory(false)
 }
+
   
   return (
     <div className="flex justify-center h-full">
