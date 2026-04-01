@@ -3,12 +3,10 @@ import { TaskStateModel } from "../models/TaskStateModel"
 let instance: timeWorkerManager | null = null
 
 export class timeWorkerManager {
- private worker:Worker   
+ private worker:Worker | null = null
 
  private constructor(){
-    this.worker = new Worker(new URL('./TimerWorker.js', import.meta.url))
-    
-    
+    //alerando o worker
  }
  
  static getInstance(){
@@ -18,16 +16,32 @@ export class timeWorkerManager {
     return instance
  }
 
- postMessage(message: TaskStateModel){
-    this.worker.postMessage(message)
+ private ensureWorker(){
+    if (!this.worker && typeof window !== 'undefined') {
+        this.worker = new Worker(new URL('./TimerWorker.js', import.meta.url))
+    }
  }
 
+ postMessage(message: TaskStateModel){
+    this.ensureWorker()
+    if (this.worker) {
+        this.worker.postMessage(message)
+    }
+ }
+
+
  onmessage(callback: (e: MessageEvent) => void){
-    this.worker.onmessage = callback
+    this.ensureWorker()
+    if (this.worker) {
+        this.worker.onmessage = callback
+    }
  }
 
  terminate(){
-    this.worker.terminate()
+    if (this.worker) {
+        this.worker.terminate()
+        this.worker = null
+    }
     instance = null
  }
 }
