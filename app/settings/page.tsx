@@ -24,6 +24,7 @@ export default function Settings() {
 
 
       toast.success("Configurações salvas com sucesso!")
+      
     }
 
   return (

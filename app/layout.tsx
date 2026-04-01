@@ -71,7 +71,6 @@ export default function RootLayout({
             pauseOnFocusLoss
             draggable
             pauseOnHover
-            theme="light"
             transition={Bounce}
           />
         </TaskContextProvider>
