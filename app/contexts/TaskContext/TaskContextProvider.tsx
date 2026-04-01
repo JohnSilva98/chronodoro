@@ -17,6 +17,8 @@ type TaskContextProviderProps = {
 
 export function TaskContextProvider({children}: TaskContextProviderProps){
      const [state, dispatch] = useReducer(taskReducer, initialState, ()=>{
+        if (typeof window === 'undefined') return initialState;
+        
         const storageState = localStorage.getItem('state') 
         if(storageState === null) return initialState
 
@@ -56,8 +58,9 @@ export function TaskContextProvider({children}: TaskContextProviderProps){
    
 
      useEffect(()=>{
-
-        localStorage.setItem('state', JSON.stringify(state))
+        if (typeof window !== 'undefined') {
+            localStorage.setItem('state', JSON.stringify(state))
+        }
        if(!state.activeTask){
         worker.terminate()
        } 
