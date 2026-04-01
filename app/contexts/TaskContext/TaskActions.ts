@@ -30,4 +30,4 @@ export type TaskActionWithoutPayloiad = {
     type: TaskActionsTypes.COMPLETE_TASK;
 }
 
-export type TaskAction = TaskActionWithPayloiad | TaskActionWithoutPayloiad
+export type TaskActionModel = TaskActionWithPayloiad | TaskActionWithoutPayloiad

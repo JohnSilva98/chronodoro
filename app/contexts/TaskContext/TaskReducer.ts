@@ -1,12 +1,13 @@
 import { TaskStateModel } from "@/app/models/TaskStateModel";
-import {  TaskActionsTypes, TaskAction } from "./TaskActions";
+import {  TaskActionsTypes } from "./TaskActions";
 import { getNextCycle } from "@/app/utils/GetNextCycle";
 import { formatSecondsToMinutes } from "@/app/utils/FormattSecondsToMinutes";
 import { initialState } from "./initialState";
+import { TaskActionModel } from "./TaskActions";
 
 export function taskReducer(
     state: TaskStateModel,
-    action: TaskAction,
+    action: TaskActionModel,
 ): TaskStateModel {
     switch(action.type){
         case TaskActionsTypes.START_TASK:{
