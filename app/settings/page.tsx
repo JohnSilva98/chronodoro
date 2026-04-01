@@ -9,8 +9,9 @@ import { TaskActionsTypes } from "../contexts/TaskContext/TaskActions";
 
 export default function Settings() {
 
-  const {state, dispatch} = useTaskContext()
+  const {state, dispatch} = useTaskContext() // importamos o contexto
 
+// variaveis locais usando o valor do estado
   const [workTime, setWorkTime] = useState(state.config.workTime)
   const [shortBreak, setShortBreak] = useState(state.config.shortBreak)
   const [longBreak, setLongBreak] = useState(state.config.longBreak)
@@ -18,7 +19,7 @@ export default function Settings() {
 
     const handleSave = (e: React.FormEvent) => {
       e.preventDefault();
-
+      // o dispatch está buscando a action resnposavel por atualizar as configurações
       dispatch({type: TaskActionsTypes.UPDATE_SETTINGS, payload: {workTime, shortBreak, longBreak}})
 
 

@@ -68,6 +68,9 @@ case TaskActionsTypes.COUNT_DOWN:{
     }
 }
 case TaskActionsTypes.UPDATE_SETTINGS:{
+    // o reducer de updatesettings faz uma cópia do estado atual 
+    // e cria um novo estado com as novas configurações
+    // vindas do payload da action
     return{
         ...state,
         config: {
