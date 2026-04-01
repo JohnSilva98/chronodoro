@@ -6,6 +6,7 @@ import { useTaskContext } from '../contexts/TaskContext/useTaskContext'
 import { formattDate } from '../utils/formattDate'
 import { GetTaskStatus } from '../utils/GetTaskStatus'
 import { TaskActionsTypes } from '../contexts/TaskContext/TaskActions'
+import { toast } from 'react-toastify'
 
 
 
@@ -23,7 +24,8 @@ const handleClearHistory = (e) => {
   if(!confirm("Tem certeza que deseja apagar o histórico?"))return
 
   dispatch({type: TaskActionsTypes.RESET_STATE})
-     
+  toast.success("Histórico apagado com sucesso!")
+
 
 
   setHasHistory(false)
@@ -43,7 +45,7 @@ const handleClearHistory = (e) => {
 
         <div className={`flex items-center gap-2 mb-4 ${hasHistory ? '' : 'hidden'}`}>
           <h1 className="text-(--text-primary) text-xl font-semibold cursor-pointer hover:text-(--error) duration-300 transition-colors">Apagar histórico</h1>
-          <Trash onClick={handleClearHistory} size={42} className='text-(--text-primary) cursor-pointer hover:bg-(--error)/80 duration-300 transition-colors border border-(--border-dark) p-[10px] rounded-lg bg-(--error)' />
+          <Trash onClick={handleClearHistory} size={42} className='text-(--text-primary) cursor-pointer hover:bg-(--error)/80 duration-300 transition-colors border border-(--border-dark) p-2.5 rounded-lg bg-(--error)' />
         </div>
 
         {/* tabela de histórico */}
