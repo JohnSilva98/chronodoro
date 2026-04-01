@@ -6,11 +6,15 @@ type AvailableThemes = 'dark' | 'light'
 
 const MenuButton = () => {
 
-  const [theme, setTheme] = useState<AvailableThemes>(()=>{
-    const storageTheme = localStorage.getItem('theme') as AvailableThemes || 'dark'
-    return storageTheme
-  })
-  
+  const [theme, setTheme] = useState<AvailableThemes>('dark')
+
+  useEffect(() => {
+    const storageTheme = localStorage.getItem('theme') as AvailableThemes
+    if (storageTheme) {
+      setTheme(storageTheme)
+    }
+  }, [])
+
   const toggleTheme = (event: React.MouseEvent<HTMLAnchorElement>) => {
     
     event.preventDefault()
