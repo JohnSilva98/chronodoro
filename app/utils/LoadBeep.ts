@@ -1,6 +1,6 @@
 export function loadBeep() {
     // Usar caminho da pasta public para evitar erro de módulo
-    const beep = new Audio('/audios/gravitational_beep .mp3');
+    const beep = new Audio('/audios/gravitational_beep.mp3');
     beep.load();
 
     return () => {
